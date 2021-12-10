@@ -11,6 +11,7 @@
 
 namespace Barryvdh\LaravelIdeHelper;
 
+use Barryvdh\LaravelIdeHelper\Console\BaseModelsCommand;
 use Barryvdh\LaravelIdeHelper\Console\EloquentCommand;
 use Barryvdh\LaravelIdeHelper\Console\GeneratorCommand;
 use Barryvdh\LaravelIdeHelper\Console\MetaCommand;
@@ -76,7 +77,7 @@ class IdeHelperServiceProvider extends ServiceProvider implements DeferrableProv
         $this->app->singleton(
             'command.ide-helper.models',
             function ($app) {
-                return new ModelsCommand($app['files']);
+                return new BaseModelsCommand($app['files']);
             }
         );
 
